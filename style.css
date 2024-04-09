@@ -25,20 +25,26 @@ img {
 .top {
 /*   display: grid; */
   grid-gap: 20px;
+  display: grid;
+  grid-template-areas: 
+    "hero hero cta1"
+    "hero hero cta2"
   /* set initial grid layout for top */
 }
 
 .cta1 {
   /* set grid-area */
-  
+  grid-area: cta1;
 }
 
 .cta2 {
   /* set grid-area */
+  grid-area: cta2;
 }
 
 .hero {
   /* set grid-area */
+  grid-area: hero;
   min-height: 400px;
   background: white url(images/taco.jpg);
   background-size: cover;
@@ -76,7 +82,10 @@ img {
 
 .menu ul {
 /*   display: grid; */
+  display: grid;
 /* add grid RAM min of 100px */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
   grid-gap: 10px;
   padding: 0;
   list-style: none;
@@ -103,6 +112,7 @@ img {
   display: grid;
   grid-gap: 20px;
  /* add grid RAM with 200px min. */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .feature {
@@ -127,15 +137,18 @@ img {
   padding:50px;
   
   /*display: grid;*/
-  
+  display: grid;
+  grid-template-columns: 400px 1fr;
 }
 
 /* Gallery! */
 
 .gallery {
 /*   display: grid; */
+  display: grid;
   grid-gap: 20px;
   /* add grid RAM with min 200px. */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
 .gallery img {
@@ -144,6 +157,7 @@ img {
 
 .gallery h2 {
   /* use grid columns to places insta grams across top of gallery */
+  grid-column: 1/-1;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   grid-gap: 20px;
@@ -163,11 +177,29 @@ img {
 
 
 /* at maxwidth 700px */
+@media (max-width: 700px){ 
 /* change top layout */
+  .top{
+    grid-template-areas: 
+      "hero hero"
+      "hero hero"
+      "cta1 cta2";
+  }
 /* change about layout */
-
+  .about {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* at maxwidth 500px */
+@media (max-width: 500px){
 /* change top layout */
-
+  .top {
+    grid-template-areas: 
+      "hero"
+      "hero"
+      "cta1"
+      "cta2";
+  }
+}
 
